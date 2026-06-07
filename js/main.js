@@ -34,8 +34,10 @@ burger.addEventListener('click', () => {
             navQuote.style.color = '';
         }, 1200);
 
-    } else {
+} else {
         if (closeTimeout) clearTimeout(closeTimeout);
+        navLogo.style.color = '';
+        navQuote.style.color = '';
         burger.classList.add('open');
         menuOverlay.classList.add('open');
         nav.classList.add('menu-open');
