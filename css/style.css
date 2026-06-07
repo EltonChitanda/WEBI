@@ -218,7 +218,7 @@ nav.menu-open .nav-quote {
     padding: 140px 40px 56px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;
@@ -235,14 +235,17 @@ nav.menu-open .nav-quote {
 .menu-links {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 48px;
     align-items: center;
     text-align: center;
+    width: 100%;
+    flex: 1;
+    justify-content: center;
 }
 
 .menu-link {
     font-family: 'Manrope', sans-serif;
-    font-size: clamp(28px, 3.5vw, 48px);
+    font-size: clamp(28px, 3.5vw, 56px);
     font-weight: 800;
     color: #F5EFE8;
     text-decoration: none;
@@ -293,6 +296,49 @@ nav.menu-open .nav-quote {
     transition-delay: 0.8s;
 }
 
+/* ── MENU SOCIALS ── */
+.menu-socials {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.menu-overlay.open .menu-socials {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.95s;
+}
+
+.menu-social-link {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(245, 239, 232, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F5EFE8;
+    font-size: 16px;
+    text-decoration: none;
+    transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.menu-social-link:hover {
+    border-color: #E8563A;
+    background: #E8563A;
+    color: #F5EFE8;
+}
+
+/* hide socials on desktop */
+@media (min-width: 992px) {
+    .menu-socials {
+        display: none;
+    }
+}
+
 /* ── HERO ── */
 .hero {
     min-height: 100vh;
@@ -315,7 +361,7 @@ nav.menu-open .nav-quote {
 .hero-headline {
     font-family: 'Manrope', sans-serif;
     font-size: clamp(36px, 5vw, 72px);
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: -0.03em;
     line-height: 1.1;
     color: #1A1816;
@@ -456,15 +502,32 @@ nav.menu-open .nav-quote {
     .menu-right {
         width: 100%;
         right: -100%;
-        padding: 0 32px;
+        padding: 120px 32px 56px;
         align-items: center;
         justify-content: center;
+        position: fixed;
     }
 
     .menu-links {
         align-items: center;
         text-align: center;
         gap: 48px;
+        flex: 0;
+        justify-content: center;
+    }
+
+    .menu-socials {
+        position: absolute;
+        bottom: 56px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+
+    .menu-overlay.open .menu-socials {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+        transition-delay: 0.95s;
     }
 }
 
