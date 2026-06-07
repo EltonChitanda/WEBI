@@ -23,21 +23,33 @@ burger.addEventListener('click', () => {
     const isOpen = menuOverlay.classList.contains('open');
 
     if (isOpen) {
+        if (closeTimeout) clearTimeout(closeTimeout);
+
         burger.classList.remove('open');
         menuOverlay.classList.remove('open');
         document.body.style.overflow = '';
+
+        // flip text colors back immediately
         navLogo.style.color = '#1A1816';
         navQuote.style.color = '#1A1816';
+
+        // wait for panels to finish before removing transparent bg
         closeTimeout = setTimeout(() => {
             nav.classList.remove('menu-open');
             navLogo.style.color = '';
             navQuote.style.color = '';
+            closeTimeout = null;
         }, 1200);
 
-} else {
-        if (closeTimeout) clearTimeout(closeTimeout);
+    } else {
+        if (closeTimeout) {
+            clearTimeout(closeTimeout);
+            closeTimeout = null;
+        }
+
         navLogo.style.color = '';
         navQuote.style.color = '';
+
         burger.classList.add('open');
         menuOverlay.classList.add('open');
         nav.classList.add('menu-open');
@@ -47,15 +59,20 @@ burger.addEventListener('click', () => {
 
 document.querySelectorAll('.menu-link').forEach(link => {
     link.addEventListener('click', () => {
+        if (closeTimeout) clearTimeout(closeTimeout);
+
         burger.classList.remove('open');
         menuOverlay.classList.remove('open');
         document.body.style.overflow = '';
+
         navLogo.style.color = '#1A1816';
         navQuote.style.color = '#1A1816';
+
         closeTimeout = setTimeout(() => {
             nav.classList.remove('menu-open');
             navLogo.style.color = '';
             navQuote.style.color = '';
+            closeTimeout = null;
         }, 1200);
     });
 });
