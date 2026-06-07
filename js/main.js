@@ -17,27 +17,25 @@ const burger = document.getElementById('burger');
 const menuOverlay = document.getElementById('menuOverlay');
 const navLogo = document.querySelector('.nav-logo');
 const navQuote = document.querySelector('.nav-quote');
+let closeTimeout = null;
 
 burger.addEventListener('click', () => {
     const isOpen = menuOverlay.classList.contains('open');
 
     if (isOpen) {
-        // closing
         burger.classList.remove('open');
         menuOverlay.classList.remove('open');
         document.body.style.overflow = '';
-        // snap text black immediately
         navLogo.style.color = '#1A1816';
         navQuote.style.color = '#1A1816';
-        // keep nav transparent until panels finish sliding
-        setTimeout(() => {
+        closeTimeout = setTimeout(() => {
             nav.classList.remove('menu-open');
             navLogo.style.color = '';
             navQuote.style.color = '';
         }, 1200);
 
     } else {
-        // opening
+        if (closeTimeout) clearTimeout(closeTimeout);
         burger.classList.add('open');
         menuOverlay.classList.add('open');
         nav.classList.add('menu-open');
@@ -52,7 +50,7 @@ document.querySelectorAll('.menu-link').forEach(link => {
         document.body.style.overflow = '';
         navLogo.style.color = '#1A1816';
         navQuote.style.color = '#1A1816';
-        setTimeout(() => {
+        closeTimeout = setTimeout(() => {
             nav.classList.remove('menu-open');
             navLogo.style.color = '';
             navQuote.style.color = '';
