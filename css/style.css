@@ -33,6 +33,13 @@ nav.scrolled {
     border-bottom: 1px solid rgba(26, 24, 22, 0.08);
 }
 
+nav.menu-open {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: none;
+}
+
 .nav-logo {
     font-family: 'Manrope', sans-serif;
     font-weight: 800;
@@ -460,88 +467,58 @@ nav.menu-open .nav-quote {
 }
 
 /* ── CUSTOM CURSOR ── */
-body {
-    cursor: none;
-}
-
-.cursor-dot {
-    width: 6px;
-    height: 6px;
-    background: #1A1816;
-    border-radius: 50%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, transform 0.2s ease;
-}
-
+.cursor-dot,
 .cursor-ring {
-    width: 32px;
-    height: 32px;
-    border: 2px solid #1A1816;
-    background: rgba(26, 24, 22, 0.08);
-    border-radius: 50%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    display: none;
 }
 
-body:has(a:hover) .cursor-ring,
-body:has(button:hover) .cursor-ring {
-    width: 48px;
-    height: 48px;
-    border-color: #E8563A;
-    background: rgba(232, 86, 58, 0.08);
-}
-
-body:has(a:hover) .cursor-dot,
-body:has(button:hover) .cursor-dot {
-    background: #E8563A;
-    transform: translate(-50%, -50%) scale(1.5);
-}
-
-@media (hover: none) and (pointer: coarse) {
-    .cursor-dot,
-    .cursor-ring {
-        display: none;
-    }
-
+@media (hover: hover) and (pointer: fine) {
     body {
-        cursor: auto;
+        cursor: none;
     }
-}
 
-nav.menu-open {
-    background: transparent !important;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border-bottom: none;
-}
+    .cursor-dot {
+        display: block;
+        width: 6px;
+        height: 6px;
+        background: #1A1816;
+        border-radius: 50%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
 
-nav.menu-open .nav-logo {
-    color: #F5EFE8;
-}
+    .cursor-ring {
+        display: block;
+        width: 32px;
+        height: 32px;
+        border: 2px solid #1A1816;
+        background: rgba(26, 24, 22, 0.08);
+        border-radius: 50%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
 
-nav.menu-open .nav-quote {
-    color: #F5EFE8;
-}
+    body:has(a:hover) .cursor-ring,
+    body:has(button:hover) .cursor-ring {
+        width: 48px;
+        height: 48px;
+        border-color: #E8563A;
+        background: rgba(232, 86, 58, 0.08);
+    }
 
-nav:not(.menu-open) .nav-logo,
-nav:not(.menu-open) .nav-quote {
-    transition: color 0s;
-}
-
-.nav-logo {
-    transition: color 0s;
-}
-
-.nav-quote {
-    transition: color 0s;
+    body:has(a:hover) .cursor-dot,
+    body:has(button:hover) .cursor-dot {
+        background: #E8563A;
+        transform: translate(-50%, -50%) scale(1.5);
+    }
 }

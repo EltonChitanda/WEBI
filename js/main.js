@@ -1,5 +1,5 @@
 // ── TOUCH DEVICE CHECK ──
-const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+const isTouchDevice = !window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
 // ── NAV SCROLL REVEAL ──
 const nav = document.getElementById('mainNav');
@@ -22,15 +22,14 @@ burger.addEventListener('click', () => {
     const isOpen = menuOverlay.classList.contains('open');
 
     if (isOpen) {
-        // snap text to black immediately
-        navLogo.style.color = '#1A1816';
-        navQuote.style.color = '#1A1816';
-
+        // closing
         burger.classList.remove('open');
         menuOverlay.classList.remove('open');
         document.body.style.overflow = '';
-
-        // remove menu-open after panels finish sliding
+        // snap text black immediately
+        navLogo.style.color = '#1A1816';
+        navQuote.style.color = '#1A1816';
+        // keep nav transparent until panels finish sliding
         setTimeout(() => {
             nav.classList.remove('menu-open');
             navLogo.style.color = '';
@@ -38,8 +37,7 @@ burger.addEventListener('click', () => {
         }, 1200);
 
     } else {
-        navLogo.style.color = '';
-        navQuote.style.color = '';
+        // opening
         burger.classList.add('open');
         menuOverlay.classList.add('open');
         nav.classList.add('menu-open');
@@ -49,13 +47,11 @@ burger.addEventListener('click', () => {
 
 document.querySelectorAll('.menu-link').forEach(link => {
     link.addEventListener('click', () => {
-        navLogo.style.color = '#1A1816';
-        navQuote.style.color = '#1A1816';
-
         burger.classList.remove('open');
         menuOverlay.classList.remove('open');
         document.body.style.overflow = '';
-
+        navLogo.style.color = '#1A1816';
+        navQuote.style.color = '#1A1816';
         setTimeout(() => {
             nav.classList.remove('menu-open');
             navLogo.style.color = '';
@@ -88,7 +84,6 @@ if (!isTouchDevice) {
     }
     animateRing();
 
-    // ── CURSOR COLOR ON DARK BACKGROUNDS ──
     const darkSections = document.querySelectorAll('.menu-right, .menu-left, .nav-burger');
 
     darkSections.forEach(section => {
