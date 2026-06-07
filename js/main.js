@@ -20,7 +20,6 @@ burger.addEventListener('click', () => {
     document.body.style.overflow = menuOverlay.classList.contains('open') ? 'hidden' : '';
 });
 
-// close menu when a link is clicked
 document.querySelectorAll('.menu-link').forEach(link => {
     link.addEventListener('click', () => {
         burger.classList.remove('open');
@@ -52,3 +51,20 @@ function animateRing() {
     requestAnimationFrame(animateRing);
 }
 animateRing();
+
+// ── CURSOR COLOR ON DARK BACKGROUNDS ──
+const darkSections = document.querySelectorAll('.menu-right, .menu-left, .nav-burger');
+
+darkSections.forEach(section => {
+    section.addEventListener('mouseenter', () => {
+        dot.style.background = '#F5EFE8';
+        ring.style.borderColor = '#F5EFE8';
+        ring.style.background = 'rgba(245, 239, 232, 0.08)';
+    });
+
+    section.addEventListener('mouseleave', () => {
+        dot.style.background = '';
+        ring.style.borderColor = '';
+        ring.style.background = '';
+    });
+});
