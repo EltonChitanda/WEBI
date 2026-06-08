@@ -590,7 +590,7 @@ nav.menu-open .nav-quote {
 
 /* ── SERVICES ── */
 .services {
-    background: #1A1816;
+    background: #282526;
     padding: 100px 56px;
 }
 
@@ -713,7 +713,7 @@ nav.menu-open .nav-quote {
 
 /* ── NAV DARK STATE ── */
 nav.dark {
-    background: #1A1816;
+    background: #282526;
     border-bottom: 0.5px solid rgba(245, 239, 232, 0.08);
 }
 
