@@ -3,8 +3,10 @@ const isTouchDevice = !window.matchMedia('(hover: hover) and (pointer: fine)').m
 
 // ── NAV SCROLL REVEAL ──
 const nav = document.getElementById('mainNav');
+let isInDarkSection = false;
 
 window.addEventListener('scroll', () => {
+    if (isInDarkSection) return;
     if (window.scrollY > 50) {
         nav.classList.add('scrolled');
     } else {
@@ -29,11 +31,9 @@ burger.addEventListener('click', () => {
         menuOverlay.classList.remove('open');
         document.body.style.overflow = '';
 
-        // flip text colors back immediately
         navLogo.style.color = '#1A1816';
         navQuote.style.color = '#1A1816';
 
-        // wait for panels to finish before removing transparent bg
         closeTimeout = setTimeout(() => {
             nav.classList.remove('menu-open');
             navLogo.style.color = '';
@@ -101,9 +101,10 @@ if (!isTouchDevice) {
     }
     animateRing();
 
-    const darkSections = document.querySelectorAll('.menu-right, .menu-left, .nav-burger');
+    // cursor flips light on dark backgrounds
+    const cursorDarkSections = document.querySelectorAll('.menu-right, .menu-left, .nav-burger, .services');
 
-    darkSections.forEach(section => {
+    cursorDarkSections.forEach(section => {
         section.addEventListener('mouseenter', () => {
             dot.style.background = '#F5EFE8';
             ring.style.borderColor = '#F5EFE8';
@@ -117,3 +118,25 @@ if (!isTouchDevice) {
         });
     });
 }
+
+// ── NAV DARK ON DARK SECTIONS ──
+const serviceSection = document.getElementById('services');
+
+window.addEventListener('scroll', () => {
+    const triggerPoint = serviceSection.offsetTop - nav.offsetHeight;
+
+    if (window.scrollY >= triggerPoint) {
+        nav.classList.add('dark');
+        nav.classList.remove('scrolled');
+        isInDarkSection = true;
+    } else {
+        nav.classList.remove('dark');
+        isInDarkSection = false;
+
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    }
+});
