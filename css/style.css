@@ -665,12 +665,6 @@ nav.menu-open .nav-quote {
     justify-content: center;
 }
 
-.services-lottie-placeholder p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
-    color: rgba(245, 239, 232, 0.2);
-    margin: 0;
-}
 
 .services-right {
     display: flex;
@@ -767,5 +761,22 @@ nav.dark .nav-burger:hover span {
 
     .services-lottie-placeholder {
         height: 200px;
+    }
+} 
+
+.services-quote {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #E8563A;
+    margin-top: 24px;
+    max-width: 320px;
+}
+
+@media (max-width: 991px) {
+    .services-quote {
+        text-align: center;
+        margin: 14px auto 0;
     }
 }
