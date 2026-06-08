@@ -643,7 +643,7 @@ nav.menu-open .nav-quote {
     line-height: 1.8;
     color: #E8563A;
     margin-bottom: 32px;
-    max-width: 320px;
+   
 }
 
 .services-link {
@@ -733,13 +733,7 @@ nav.dark .nav-burger span {
     background: #1A1816;
 }
 
-nav.dark .nav-burger:hover {
-    background: #E8563A;
-}
 
-nav.dark .nav-burger:hover span {
-    background: #F5EFE8;
-}
 
 /* ── MOBILE SERVICES ── */
 @media (max-width: 991px) {
@@ -765,3 +759,9 @@ nav.dark .nav-burger:hover span {
         color: #F5EFE8;
     }
 }
+
+nav.menu-open.dark {
+    background: transparent;
+    border-bottom: none;
+}
+
