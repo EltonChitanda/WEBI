@@ -768,3 +768,154 @@ nav.dark .nav-burger span {
     50%  { transform: translateX(6px); }
     100% { transform: translateX(0); }
 }
+
+/* ── RECENT WORK ── */
+.work {
+    background: #f0f0f0;
+    padding: 60px 56px;
+}
+
+.work-top {
+    margin-bottom: 24px;
+}
+
+.work-eyebrow {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #E8563A;
+    margin-bottom: 10px;
+}
+
+.work-headline {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 800;
+    color: #1A1816;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.work-card {
+    display: block;
+    text-decoration: none;
+    background: #1A1816;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.work-browser-bar {
+    height: 36px;
+    background: #1e1c1b;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+}
+
+.work-browser-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.work-browser-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: block;
+}
+
+.work-browser-url {
+    flex: 1;
+    height: 20px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    color: rgba(245, 239, 232, 0.3);
+}
+
+.work-card-screen {
+    width: 100%;
+    height: 440px;
+    overflow: hidden;
+}
+
+.work-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.6s ease;
+}
+
+.work-card:hover .work-card-img {
+    transform: scale(1.02);
+}
+
+.work-card-body {
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 0.5px solid rgba(245, 239, 232, 0.08);
+}
+
+.work-card-tag {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #E8563A;
+    margin-bottom: 4px;
+}
+
+.work-card-name {
+    font-family: 'Manrope', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #F5EFE8;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.work-card-url {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    color: rgba(245, 239, 232, 0.3);
+    margin-top: 2px;
+}
+
+.work-card-visit {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #F5EFE8;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+    .work {
+        padding: 48px 24px;
+    }
+
+    .work-card-screen {
+        height: 200px;
+    }
+
+    .work-card-body {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}

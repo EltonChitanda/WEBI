@@ -5,15 +5,6 @@ const isTouchDevice = !window.matchMedia('(hover: hover) and (pointer: fine)').m
 const nav = document.getElementById('mainNav');
 let isInDarkSection = false;
 
-window.addEventListener('scroll', () => {
-    if (isInDarkSection) return;
-    if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
-});
-
 // ── BURGER MENU ──
 const burger = document.getElementById('burger');
 const menuOverlay = document.getElementById('menuOverlay');
@@ -101,7 +92,6 @@ if (!isTouchDevice) {
     }
     animateRing();
 
-    // cursor flips light on dark backgrounds
     const cursorDarkSections = document.querySelectorAll('.menu-right, .menu-left, .nav-burger, .services');
 
     cursorDarkSections.forEach(section => {
@@ -121,17 +111,21 @@ if (!isTouchDevice) {
 
 // ── NAV DARK ON DARK SECTIONS ──
 const serviceSection = document.getElementById('services');
+const workSection = document.getElementById('work');
 
 window.addEventListener('scroll', () => {
-    const triggerPoint = serviceSection.offsetTop - nav.offsetHeight;
+    if (nav.classList.contains('menu-open')) return;
 
-    if (window.scrollY >= triggerPoint) {
+    const serviceStart = serviceSection.offsetTop - nav.offsetHeight;
+    const serviceEnd = serviceSection.offsetTop + serviceSection.offsetHeight - nav.offsetHeight;
+
+    if (window.scrollY >= serviceStart && window.scrollY < serviceEnd) {
+        isInDarkSection = true;
         nav.classList.add('dark');
         nav.classList.remove('scrolled');
-        isInDarkSection = true;
     } else {
-        nav.classList.remove('dark');
         isInDarkSection = false;
+        nav.classList.remove('dark');
 
         if (window.scrollY > 50) {
             nav.classList.add('scrolled');
