@@ -760,7 +760,7 @@ nav.dark .nav-burger span {
 
 .services-link .arrow {
     display: inline-block;
-    animation: arrow-loop 1s ease-in-out infinite;
+    animation: arrow-loop 1.5s ease-in-out infinite;
 }
 
 @keyframes arrow-loop {
