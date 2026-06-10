@@ -134,3 +134,95 @@ window.addEventListener('scroll', () => {
         }
     }
 });
+
+// ── CONTACT FORM ──
+const form = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
+
+const validators = {
+    fullname: val => val.trim().length >= 2,
+    email: val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim()),
+    phone: val => /^[\+]?[\d\s\-\(\)]{8,}$/.test(val.trim()),
+    message: val => val.trim().length >= 10
+};
+
+function validateField(id) {
+    const input = document.getElementById(id);
+    if (!input) return true;
+    const wrap = document.getElementById('wrap-' + id);
+    const err = document.getElementById('err-' + id);
+    if (!wrap) return true;
+    const val = input.value;
+    const isOptional = !input.required;
+    if (isOptional && (val === '' || val === null)) {
+        input.classList.remove('error', 'valid');
+        wrap.classList.remove('has-check');
+        if (err) err.classList.remove('show');
+        return true;
+    }
+    const valid = validators[id] ? validators[id](val) : val.trim() !== '';
+    if (valid) {
+        input.classList.remove('error');
+        input.classList.add('valid');
+        wrap.classList.add('has-check');
+        if (err) err.classList.remove('show');
+    } else {
+        input.classList.remove('valid');
+        input.classList.add('error');
+        wrap.classList.remove('has-check');
+        if (err) err.classList.add('show');
+    }
+    return valid;
+}
+
+['fullname', 'business', 'email', 'phone', 'message'].forEach(id => {
+    const input = document.getElementById(id);
+    if (!input) return;
+    input.addEventListener('blur', () => validateField(id));
+    input.addEventListener('input', () => {
+        if (input.classList.contains('error')) validateField(id);
+    });
+});
+
+const fields = ['fullname', 'business', 'email', 'phone', 'message'];
+fields.forEach((id, i) => {
+    const input = document.getElementById(id);
+    if (!input || input.tagName === 'TEXTAREA') return;
+    input.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const next = document.getElementById(fields[i + 1]);
+            if (next) next.focus();
+        }
+    });
+});
+
+form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const required = ['fullname', 'email', 'phone', 'message'];
+    let allValid = true;
+    required.forEach(id => { if (!validateField(id)) allValid = false; });
+    if (!allValid) return;
+    submitBtn.disabled = true;
+    submitBtn.classList.add('loading');
+    submitBtn.querySelector('.btn-text').textContent = 'Sending...';
+    try {
+        const formData = new FormData(form);
+        const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+            document.getElementById('formSection').style.display = 'none';
+            document.getElementById('formSuccess').classList.add('show');
+        } else {
+            throw new Error('Failed');
+        }
+    } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+        submitBtn.querySelector('.btn-text').textContent = 'Send Message →';
+        alert('Something went wrong. Please try again.');
+    }
+});

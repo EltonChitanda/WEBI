@@ -392,7 +392,7 @@ nav.dark .nav-burger span {
     font-weight: 600;
     letter-spacing: -0.03em;
     line-height: 1.1;
-    color: #1A1816;
+    color: #2d2a2b;
     margin-bottom: 24px;
 }
 
@@ -769,3 +769,340 @@ nav.dark .nav-burger span {
     100% { transform: translateX(0); }
 }
 
+/* ── CONTACT SECTION ── */
+.contact-section {
+    background: #f0f0f0;
+    padding: 80px 56px;
+}
+
+.contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 48px;
+    align-items: start;
+}
+
+/* ── LEFT — project ── */
+.contact-project-eyebrow {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #E8563A;
+    margin-bottom: 10px;
+}
+
+.contact-project-heading {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(24px, 2.5vw, 32px);
+    font-weight: 800;
+    color: #1A1816;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1.5px solid rgba(26, 24, 22, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(26, 24, 22, 0.1);
+}
+
+.project-card-img-wrap {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-card-img {
+    transform: scale(1.04);
+}
+
+.project-card-body {
+    padding: 20px 22px;
+    border-top: 1.5px solid rgba(26, 24, 22, 0.08);
+}
+
+.project-card-name {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #1A1816;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+}
+
+.project-card-url {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    color: #6b6560;
+    margin-bottom: 16px;
+}
+
+.project-card-btn {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #1A1816;
+    text-decoration: none;
+    border-bottom: 1.5px solid #1A1816;
+    padding-bottom: 2px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card-btn:hover {
+    color: #E8563A;
+    border-color: #E8563A;
+}
+
+/* ── RIGHT — form ── */
+.contact-form-wrap {
+    background: #fff;
+    border: 2px solid #1A1816;
+    border-radius: 0;
+    padding: 40px;
+    position: relative;
+}
+
+.contact-form-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(26, 24, 22, 0.15);
+    pointer-events: none;
+}
+
+.contact-form-wrap .form-section {
+    opacity: 1;
+    transform: none;
+    animation: none;
+}
+
+.contact-form-wrap .form-eyebrow {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #E8563A;
+    margin-bottom: 10px;
+}
+
+.contact-form-wrap .form-heading {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(22px, 2.5vw, 30px);
+    font-weight: 800;
+    color: #1A1816;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 8px;
+}
+
+.contact-form-wrap .form-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #6b6560;
+    margin-bottom: 28px;
+}
+
+.contact-form-wrap .form-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-form-wrap .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.contact-form-wrap .field-wrap {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.contact-form-wrap .field-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #1A1816;
+    margin-bottom: 6px;
+}
+
+.contact-form-wrap .field-label .required { color: #E8563A; margin-left: 2px; }
+.contact-form-wrap .field-label .optional { color: #9ca3af; font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 11px; margin-left: 4px; }
+
+.contact-form-wrap .field-input,
+.contact-form-wrap .field-textarea {
+    width: 100%;
+    min-height: 50px;
+    padding: 0 16px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 0;
+    background: #fafafa;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #1A1816;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-form-wrap .field-input::placeholder,
+.contact-form-wrap .field-textarea::placeholder { color: #c4c4c4; }
+
+.contact-form-wrap .field-input:focus,
+.contact-form-wrap .field-textarea:focus {
+    border-color: #E8563A;
+    box-shadow: 0 0 0 3px rgba(232, 86, 58, 0.08);
+    background: #fff;
+}
+
+.contact-form-wrap .field-input.valid,
+.contact-form-wrap .field-textarea.valid { border-color: #22c55e; }
+
+.contact-form-wrap .field-input.error,
+.contact-form-wrap .field-textarea.error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.06);
+}
+
+.contact-form-wrap .field-textarea {
+    min-height: 120px;
+    padding: 14px 16px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.contact-form-wrap .field-check {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #22c55e;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.contact-form-wrap .field-wrap.has-check .field-check { opacity: 1; }
+
+.contact-form-wrap .field-error {
+    font-size: 11px;
+    color: #ef4444;
+    margin-top: 4px;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.2s ease, opacity 0.2s ease;
+    opacity: 0;
+}
+
+.contact-form-wrap .field-error.show { height: 18px; opacity: 1; }
+
+.contact-form-wrap .form-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 54px;
+    background: #1A1816;
+    color: #F5EFE8;
+    border: none;
+    border-radius: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 4px;
+}
+
+.contact-form-wrap .form-submit:hover { background: #E8563A; }
+.contact-form-wrap .form-submit:active { transform: scale(0.98); }
+.contact-form-wrap .form-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+.contact-form-wrap .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(245,239,232,0.3);
+    border-top-color: #F5EFE8;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: none;
+}
+
+.contact-form-wrap .form-submit.loading .spinner { display: block; }
+.contact-form-wrap .form-submit.loading .btn-text { display: none; }
+
+.contact-form-wrap .form-success {
+    display: none;
+    text-align: center;
+    padding: 48px 24px;
+}
+
+.contact-form-wrap .form-success.show { display: block; }
+.contact-form-wrap .success-icon { font-size: 40px; margin-bottom: 16px; }
+
+.contact-form-wrap .success-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #1A1816;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+}
+
+.contact-form-wrap .success-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #6b6560;
+    line-height: 1.7;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── MOBILE ── */
+@media (max-width: 991px) {
+    .contact-section {
+        padding: 48px 24px;
+    }
+
+    .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .contact-form-wrap {
+        padding: 24px;
+    }
+
+    .contact-form-wrap .form-row {
+        grid-template-columns: 1fr;
+    }
+}

@@ -126,11 +126,96 @@
         </div>
     </section>
 
+    <!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+    <div class="contact-inner">
+
+        <!-- LEFT — featured project -->
+        <div class="contact-project">
+            <p class="contact-project-eyebrow">Featured Project</p>
+            <h2 class="contact-project-heading">Recent Work</h2>
+
+            <div class="project-card">
+                <div class="project-card-img-wrap">
+                    <img src="assets/images/waterfront.png" alt="Waterfront Pro" class="project-card-img">
+                </div>
+                <div class="project-card-body">
+                    <h3 class="project-card-name">Waterfront Pro</h3>
+                    <p class="project-card-url">waterfrontpro.co.za</p>
+                    <a href="https://waterfrontpro.co.za" target="_blank" class="project-card-btn">View Project →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT — contact form -->
+        <div class="contact-form-wrap">
+            <div class="form-section" id="formSection">
+                <p class="form-eyebrow">Get in Touch</p>
+                <h2 class="form-heading">Let's build something great.</h2>
+                <p class="form-desc">Tell us about your project and we'll get back to you within 24 hours.</p>
+
+                <form class="form-body" id="contactForm" novalidate>
+                    <div class="form-row">
+                        <div class="field-wrap" id="wrap-fullname">
+                            <label class="field-label" for="fullname">Full Name <span class="required">*</span></label>
+                            <input class="field-input" type="text" id="fullname" name="fullname" placeholder="John Doe" autocomplete="name" required>
+                            <span class="field-check">✓</span>
+                            <span class="field-error" id="err-fullname">Please enter your full name.</span>
+                        </div>
+                        <div class="field-wrap" id="wrap-business">
+                            <label class="field-label" for="business">Business Name <span class="optional">(optional)</span></label>
+                            <input class="field-input" type="text" id="business" name="business" placeholder="Your Business" autocomplete="organization">
+                            <span class="field-check">✓</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="field-wrap" id="wrap-email">
+                            <label class="field-label" for="email">Email Address <span class="required">*</span></label>
+                            <input class="field-input" type="email" id="email" name="email" placeholder="john@example.com" autocomplete="email" required>
+                            <span class="field-check">✓</span>
+                            <span class="field-error" id="err-email">Please enter a valid email address.</span>
+                        </div>
+                        <div class="field-wrap" id="wrap-phone">
+                            <label class="field-label" for="phone">Phone Number <span class="required">*</span></label>
+                            <input class="field-input" type="tel" id="phone" name="phone" placeholder="+27 00 000 0000" autocomplete="tel" inputmode="tel" required>
+                            <span class="field-check">✓</span>
+                            <span class="field-error" id="err-phone">Please enter a valid phone number.</span>
+                        </div>
+                    </div>
+                    <div class="field-wrap" id="wrap-message">
+                        <label class="field-label" for="message">Project Description <span class="required">*</span></label>
+                        <textarea class="field-textarea" id="message" name="message" placeholder="Tell us about your project — what you need, your goals, your timeline..." required></textarea>
+                        <span class="field-error" id="err-message">Please describe your project.</span>
+                    </div>
+                    <button type="submit" class="form-submit" id="submitBtn">
+                        <span class="btn-text">Send Message →</span>
+                        <span class="spinner"></span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="form-success" id="formSuccess">
+                <div class="success-icon">✅</div>
+                <h3 class="success-title">Message Sent Successfully</h3>
+                <p class="success-text">Thank you for reaching out. We'll review your project and get back to you as soon as possible.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    
+
+    
+
+    
+
+    
 
 
 
 
-    <div style="height: 100vh; background: #f0f0f0;"></div>
+
 
 
 
