@@ -226,3 +226,11 @@ form.addEventListener('submit', async e => {
         alert('Something went wrong. Please try again.');
     }
 });
+
+// ── SCROLL TO CONTACT ──
+const navQuoteBtn = document.getElementById('navQuote');
+const contactSection = document.getElementById('contact');
+
+navQuoteBtn.addEventListener('click', () => {
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+});
