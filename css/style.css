@@ -1309,4 +1309,8 @@ nav.dark .nav-burger span {
 .contact-inner {
     grid-template-columns: 1fr;
 }
+
+.hero-headline {
+    text-align: left;
+}
 }
