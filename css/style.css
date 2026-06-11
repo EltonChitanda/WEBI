@@ -1314,3 +1314,15 @@ nav.dark .nav-burger span {
     text-align: left;
 }
 }
+
+/* ── GLOBAL CONTAINER ── */
+.hero .container-fluid,
+.services-inner,
+.contact-inner,
+.footer-top,
+.footer-bottom {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
