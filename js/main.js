@@ -75,6 +75,7 @@ if (!isTouchDevice) {
 
     let ringX = 0, ringY = 0;
     let mouseX = 0, mouseY = 0;
+    let cursorIsLight = false;
 
     window.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
@@ -92,26 +93,53 @@ if (!isTouchDevice) {
     }
     animateRing();
 
-    const cursorDarkSections = document.querySelectorAll('.menu-right, .menu-left, .nav-burger, .services');
+    function setCursorLight() {
+        dot.style.background = '#F5EFE8';
+        ring.style.borderColor = '#F5EFE8';
+        ring.style.background = 'rgba(245, 239, 232, 0.08)';
+        cursorIsLight = true;
+    }
+
+    function setCursorDark() {
+        dot.style.background = '';
+        ring.style.borderColor = '';
+        ring.style.background = '';
+        cursorIsLight = false;
+    }
+
+    // dark backgrounds that need light cursor
+   const cursorDarkSections = document.querySelectorAll('.menu-right, .menu-left, .nav-burger, .services, .footer');
 
     cursorDarkSections.forEach(section => {
-        section.addEventListener('mouseenter', () => {
-            dot.style.background = '#F5EFE8';
-            ring.style.borderColor = '#F5EFE8';
-            ring.style.background = 'rgba(245, 239, 232, 0.08)';
-        });
-
+        section.addEventListener('mouseenter', setCursorLight);
         section.addEventListener('mouseleave', () => {
-            dot.style.background = '';
-            ring.style.borderColor = '';
-            ring.style.background = '';
+            // only reset if not hovering nav while dark
+            if (!nav.classList.contains('dark')) {
+                setCursorDark();
+            }
         });
+    });
+
+    // nav itself — flip cursor when nav is dark
+    nav.addEventListener('mouseenter', () => {
+        if (nav.classList.contains('dark')) {
+            setCursorLight();
+        }
+    });
+
+    nav.addEventListener('mouseleave', () => {
+        if (cursorIsLight && !nav.classList.contains('dark')) {
+            setCursorDark();
+        }
+        // if leaving nav but still in dark section keep it light
+        if (!isInDarkSection) {
+            setCursorDark();
+        }
     });
 }
 
 // ── NAV DARK ON DARK SECTIONS ──
 const serviceSection = document.getElementById('services');
-const workSection = document.getElementById('work');
 
 window.addEventListener('scroll', () => {
     if (nav.classList.contains('menu-open')) return;
