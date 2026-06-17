@@ -108,7 +108,7 @@ if (!isTouchDevice) {
     }
 
     // dark backgrounds that need light cursor
-   const cursorDarkSections = document.querySelectorAll('.menu-right, .menu-left, .nav-burger, .services, .footer');
+   const cursorDarkSections = document.querySelectorAll('.menu-right, .menu-left, .nav-burger, .services, .footer,  .services-cta');
 
     cursorDarkSections.forEach(section => {
         section.addEventListener('mouseenter', setCursorLight);

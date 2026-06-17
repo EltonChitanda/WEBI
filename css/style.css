@@ -1192,3 +1192,317 @@ nav.dark .nav-burger span {
         text-align: center;
     }
 }
+
+/* ── SERVICES HERO ── */
+.services-hero {
+    padding: 180px 56px 80px;
+    background: #f0f0f0;
+    text-align: center;
+}
+
+.services-hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.services-hero-eyebrow {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #E8563A;
+    margin-bottom: 16px;
+}
+
+.services-hero-headline {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: #1A1816;
+    margin-bottom: 20px;
+}
+
+.services-hero-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #6b6560;
+}
+
+/* ── SERVICE BLOCK ── */
+.service-block {
+    padding: 80px 56px;
+    background: #fff;
+}
+
+.service-block:nth-child(odd) {
+    background: #fff;
+}
+
+.service-block-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.service-block.reversed .service-block-inner {
+    direction: rtl;
+}
+
+.service-block.reversed .service-block-text,
+.service-block.reversed .service-block-image {
+    direction: ltr;
+}
+
+.service-block-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-block-image img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+}
+
+.service-block-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #E8563A;
+    margin-bottom: 16px;
+}
+
+.service-block-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(26px, 3vw, 38px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    color: #1A1816;
+    margin-bottom: 20px;
+}
+
+.service-block-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #6b6560;
+    margin-bottom: 28px;
+}
+
+.service-block-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.service-block-list li {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1A1816;
+    padding-left: 24px;
+    position: relative;
+}
+
+.service-block-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #E8563A;
+}
+
+/* ── SERVICES CTA ── */
+.services-cta {
+    background: #1A1816;
+    padding: 100px 56px;
+    text-align: center;
+}
+
+.services-cta-inner {
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.services-cta-headline {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #F5EFE8;
+    margin-bottom: 16px;
+}
+
+.services-cta-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(245,239,232,0.5);
+    margin-bottom: 36px;
+}
+
+.services-cta-btn {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #1A1816;
+    background: #F5EFE8;
+    padding: 16px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.services-cta-btn:hover {
+    background: #E8563A;
+    color: #F5EFE8;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 991px) {
+    .services-hero {
+        padding: 140px 24px 60px;
+    }
+
+    .service-block {
+        padding: 56px 24px;
+    }
+
+    .service-block-inner,
+    .service-block.reversed .service-block-inner {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 32px;
+        text-align: left;
+    }
+
+    .service-block-image img {
+        max-width: 280px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .services-cta {
+        padding: 64px 24px;
+    }
+}
+
+/* ── PROCESS SECTION ── */
+.process-section {
+    background: #f0f0f0;
+    padding: 100px 56px;
+}
+
+.process-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.process-header {
+    max-width: 560px;
+    margin-bottom: 64px;
+}
+
+.process-eyebrow {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #E8563A;
+    margin-bottom: 16px;
+}
+
+.process-headline {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: #1A1816;
+    margin-bottom: 16px;
+}
+
+.process-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #6b6560;
+}
+
+.process-steps {
+    display: flex;
+    flex-direction: column;
+}
+
+.process-step {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 32px;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(26,24,22,0.1);
+}
+
+.process-step:first-child {
+    border-top: 1px solid rgba(26,24,22,0.1);
+}
+
+.process-number {
+    font-family: 'Manrope', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: rgba(26,24,22,0.15);
+    letter-spacing: -0.02em;
+}
+
+.process-step-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(18px, 2vw, 22px);
+    font-weight: 800;
+    color: #1A1816;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+.process-step-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #6b6560;
+    max-width: 600px;
+}
+
+/* mobile */
+@media (max-width: 991px) {
+    .process-section {
+        padding: 60px 24px;
+    }
+
+    .process-step {
+        grid-template-columns: 60px 1fr;
+        gap: 20px;
+        padding: 24px 0;
+    }
+
+    .process-number {
+        font-size: 24px;
+    }
+}
