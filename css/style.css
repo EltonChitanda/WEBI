@@ -1515,3 +1515,23 @@ img {
 html, body {
     overflow-x: hidden;
 }
+
+@media (max-width: 991px) {
+    .service-block-inner,
+    .service-block.reversed .service-block-inner {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 32px;
+        text-align: left;
+    }
+
+    .service-block-image {
+        order: -1;
+    }
+
+    .service-block-image img {
+        max-width: 280px;
+        margin: 0 auto;
+        display: block;
+    }
+}
