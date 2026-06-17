@@ -183,7 +183,6 @@ nav.dark .nav-burger span {
     pointer-events: none;
 }
 
-/* LEFT — panel */
 .menu-left {
     width: 65%;
     height: 100dvh;
@@ -237,7 +236,6 @@ nav.dark .nav-burger span {
     text-decoration: none;
 }
 
-/* RIGHT — links panel */
 .menu-right {
     width: 35%;
     height: 100dvh;
@@ -1195,42 +1193,51 @@ nav.dark .nav-burger span {
 
 /* ── SERVICES HERO ── */
 .services-hero {
-    padding: 180px 56px 80px;
+    padding: 180px 56px 60px;
     background: #f0f0f0;
     text-align: center;
 }
 
 .services-hero-inner {
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 auto;
-}
-
-.services-hero-eyebrow {
-    font-family: 'Poppins', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #E8563A;
-    margin-bottom: 16px;
 }
 
 .services-hero-headline {
     font-family: 'Manrope', sans-serif;
-    font-size: clamp(40px, 6vw, 72px);
+    font-size: clamp(36px, 5.5vw, 64px);
     font-weight: 800;
     letter-spacing: -0.03em;
-    line-height: 1.1;
+    line-height: 1.05;
     color: #1A1816;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
-.services-hero-desc {
+.services-hero-sub-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.services-hero-link {
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.7;
-    color: #6b6560;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #1A1816;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.3s ease;
+}
+
+.services-hero-link:hover {
+    color: #E8563A;
+}
+
+@media (max-width: 991px) {
+    .services-hero {
+        padding: 140px 24px 48px;
+    }
 }
 
 /* ── SERVICE BLOCK ── */
@@ -1327,61 +1334,8 @@ nav.dark .nav-burger span {
     color: #E8563A;
 }
 
-/* ── SERVICES CTA ── */
-.services-cta {
-    background: #1A1816;
-    padding: 100px 56px;
-    text-align: center;
-}
-
-.services-cta-inner {
-    max-width: 560px;
-    margin: 0 auto;
-}
-
-.services-cta-headline {
-    font-family: 'Manrope', sans-serif;
-    font-size: clamp(32px, 4vw, 48px);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: #F5EFE8;
-    margin-bottom: 16px;
-}
-
-.services-cta-desc {
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    line-height: 1.7;
-    color: rgba(245,239,232,0.5);
-    margin-bottom: 36px;
-}
-
-.services-cta-btn {
-    display: inline-block;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #1A1816;
-    background: #F5EFE8;
-    padding: 16px 36px;
-    border-radius: 100px;
-    text-decoration: none;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-.services-cta-btn:hover {
-    background: #E8563A;
-    color: #F5EFE8;
-}
-
 /* ── MOBILE ── */
 @media (max-width: 991px) {
-    .services-hero {
-        padding: 140px 24px 60px;
-    }
-
     .service-block {
         padding: 56px 24px;
     }
@@ -1394,14 +1348,14 @@ nav.dark .nav-burger span {
         text-align: left;
     }
 
+    .service-block-image {
+        order: -1;
+    }
+
     .service-block-image img {
         max-width: 280px;
         margin: 0 auto;
         display: block;
-    }
-
-    .services-cta {
-        padding: 64px 24px;
     }
 }
 
@@ -1490,7 +1444,6 @@ nav.dark .nav-burger span {
     max-width: 600px;
 }
 
-/* mobile */
 @media (max-width: 991px) {
     .process-section {
         padding: 60px 24px;
@@ -1514,24 +1467,4 @@ img {
 
 html, body {
     overflow-x: hidden;
-}
-
-@media (max-width: 991px) {
-    .service-block-inner,
-    .service-block.reversed .service-block-inner {
-        grid-template-columns: 1fr;
-        direction: ltr;
-        gap: 32px;
-        text-align: left;
-    }
-
-    .service-block-image {
-        order: -1;
-    }
-
-    .service-block-image img {
-        max-width: 280px;
-        margin: 0 auto;
-        display: block;
-    }
 }
