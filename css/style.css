@@ -1468,3 +1468,11 @@ img {
 html, body {
     overflow-x: hidden;
 }
+
+/* ── LOGO Q FIX ── */
+.nav-logo,
+.footer-logo {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
