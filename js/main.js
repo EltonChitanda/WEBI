@@ -277,3 +277,41 @@ if (isTouchDevice) {
         });
     });
 }
+
+// ── COOKIE CONSENT ──
+const cookieBanner = document.getElementById('cookieBanner');
+const cookieAccept = document.getElementById('cookieAccept');
+const cookieDecline = document.getElementById('cookieDecline');
+const cookieChoice = localStorage.getItem('cookieConsent');
+
+function loadAnalytics() {
+    // ── PASTE YOUR GOOGLE ANALYTICS SNIPPET HERE WHEN READY ──
+    // Example:
+    // const script = document.createElement('script');
+    // script.src = 'https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID';
+    // script.async = true;
+    // document.head.appendChild(script);
+    // window.dataLayer = window.dataLayer || [];
+    // function gtag(){dataLayer.push(arguments);}
+    // gtag('js', new Date());
+    // gtag('config', 'YOUR-GA-ID');
+}
+
+if (!cookieChoice) {
+    setTimeout(() => {
+        cookieBanner.classList.add('show');
+    }, 1000);
+} else if (cookieChoice === 'accepted') {
+    loadAnalytics();
+}
+
+cookieAccept.addEventListener('click', () => {
+    localStorage.setItem('cookieConsent', 'accepted');
+    cookieBanner.classList.remove('show');
+    loadAnalytics();
+});
+
+cookieDecline.addEventListener('click', () => {
+    localStorage.setItem('cookieConsent', 'declined');
+    cookieBanner.classList.remove('show');
+});
