@@ -1530,3 +1530,7 @@ html, body {
         display: none;
     }
 }
+
+.menu-link.tapped::after {
+    width: 100%;
+}

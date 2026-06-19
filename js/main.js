@@ -262,3 +262,18 @@ const contactSection = document.getElementById('contact');
 navQuoteBtn.addEventListener('click', () => {
     contactSection.scrollIntoView({ behavior: 'smooth' });
 });
+
+// ── MOBILE MENU LINK TAP ANIMATION ──
+if (isTouchDevice) {
+    document.querySelectorAll('.menu-link').forEach(link => {
+        link.addEventListener('click', function (e) {
+            if (!this.classList.contains('tapped')) {
+                e.preventDefault();
+                this.classList.add('tapped');
+                setTimeout(() => {
+                    window.location.href = this.getAttribute('href');
+                }, 350);
+            }
+        });
+    });
+}
