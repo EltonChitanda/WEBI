@@ -1544,10 +1544,10 @@ html, body {
     }
 }
 
-.services-page nav {
+.services-page nav:not(.menu-open) {
     background: #fff;
 }
 
-.services-page nav.scrolled {
+.services-page nav.scrolled:not(.menu-open) {
     background: rgba(255, 255, 255, 0.95);
 }
