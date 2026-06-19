@@ -1213,6 +1213,15 @@ nav.dark .nav-burger span {
         gap: 16px;
         text-align: center;
     }
+
+ @media (max-width: 991px) {
+    .hero-eyebrow {
+        white-space: nowrap;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+    }
+}
+}
 }
 
 /* ── SERVICES HERO ── */
