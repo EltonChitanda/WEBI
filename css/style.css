@@ -319,6 +319,12 @@ nav.dark .nav-burger span {
     transition-delay: 0.65s;
 }
 
+.menu-overlay.open .menu-link:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s;
+}
+
 /* ── MENU SOCIALS ── */
 .menu-socials {
     display: flex;
