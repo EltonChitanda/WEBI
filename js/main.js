@@ -170,7 +170,6 @@ const submitBtn = document.getElementById('submitBtn');
 const validators = {
     fullname: val => val.trim().length >= 2,
     email: val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim()),
-    phone: val => /^[\+]?[\d\s\-\(\)]{8,}$/.test(val.trim()),
     message: val => val.trim().length >= 10
 };
 
@@ -180,6 +179,25 @@ function validateField(id) {
     const wrap = document.getElementById('wrap-' + id);
     const err = document.getElementById('err-' + id);
     if (!wrap) return true;
+
+    // phone field is validated through intl-tel-input instead
+    if (id === 'phone') {
+        if (typeof iti === 'undefined' || !iti) return true;
+        const valid = iti.isValidNumber();
+        if (valid) {
+            input.classList.remove('error');
+            input.classList.add('valid');
+            wrap.classList.add('has-check');
+            if (err) err.classList.remove('show');
+        } else {
+            input.classList.remove('valid');
+            input.classList.add('error');
+            wrap.classList.remove('has-check');
+            if (err) err.classList.add('show');
+        }
+        return valid;
+    }
+
     const val = input.value;
     const isOptional = !input.required;
     if (isOptional && (val === '' || val === null)) {
@@ -236,6 +254,12 @@ form.addEventListener('submit', async e => {
     submitBtn.querySelector('.btn-text').textContent = 'Sending...';
     try {
         const formData = new FormData(form);
+
+        // replace the plain phone value with the full international number
+        if (typeof iti !== 'undefined' && iti) {
+            formData.set('phone', iti.getNumber());
+        }
+
         const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
             method: 'POST',
             body: formData,
