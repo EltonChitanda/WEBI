@@ -108,7 +108,7 @@ if (!isTouchDevice) {
     }
 
     // dark backgrounds that need light cursor
-   const cursorDarkSections = document.querySelectorAll('.menu-right, .menu-left, .nav-burger, .services, .footer,  .services-cta');
+    const cursorDarkSections = document.querySelectorAll('.menu-right, .menu-left, .nav-burger, .services, .footer,  .services-cta');
 
     cursorDarkSections.forEach(section => {
         section.addEventListener('mouseenter', setCursorLight);
@@ -284,23 +284,27 @@ const navQuoteBtn = document.getElementById('navQuote');
 const contactSection = document.getElementById('contact');
 
 navQuoteBtn.addEventListener('click', () => {
+    // close the menu first if it's open
+    if (menuOverlay.classList.contains('open')) {
+        if (closeTimeout) clearTimeout(closeTimeout);
+
+        burger.classList.remove('open');
+        menuOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+
+        navLogo.style.color = '#1A1816';
+        navQuote.style.color = '#1A1816';
+
+        closeTimeout = setTimeout(() => {
+            nav.classList.remove('menu-open');
+            navLogo.style.color = '';
+            navQuote.style.color = '';
+            closeTimeout = null;
+        }, 1200);
+    }
+
     contactSection.scrollIntoView({ behavior: 'smooth' });
 });
-
-// ── MOBILE MENU LINK TAP ANIMATION ──
-if (isTouchDevice) {
-    document.querySelectorAll('.menu-link').forEach(link => {
-        link.addEventListener('click', function (e) {
-            if (!this.classList.contains('tapped')) {
-                e.preventDefault();
-                this.classList.add('tapped');
-                setTimeout(() => {
-                    window.location.href = this.getAttribute('href');
-                }, 350);
-            }
-        });
-    });
-}
 
 // ── COOKIE CONSENT ──
 const cookieBanner = document.getElementById('cookieBanner');
