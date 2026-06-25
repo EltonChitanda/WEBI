@@ -1633,18 +1633,3 @@ html, body {
     }
 }
 
-/* ── FORCE DROPDOWN MODE, NEVER FULLSCREEN ── */
-.iti--fullscreen-popup .iti__dropdown-content {
-    position: absolute !important;
-    top: 100% !important;
-    left: 0 !important;
-    transform: none !important;
-    width: 100% !important;
-    max-width: 320px !important;
-    max-height: 300px !important;
-    overflow-y: auto !important;
-}
-
-.iti__overlay {
-    display: none !important;
-}
