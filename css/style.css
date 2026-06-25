@@ -1633,34 +1633,3 @@ html, body {
     }
 }
 
-/* ── INTL-TEL-INPUT MOBILE FIX ── */
-.iti {
-    width: 100%;
-}
-
-.iti__dropdown-content {
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-@media (max-width: 991px) {
-    .iti__dropdown-content {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90%;
-        max-width: 360px;
-        max-height: 70vh;
-        border-radius: 12px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        z-index: 6000;
-    }
-
-    .iti__search-input {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-        background: #fff;
-    }
-}
