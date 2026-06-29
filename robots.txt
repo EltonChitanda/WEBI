@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://qodework.com/sitemap.xml
