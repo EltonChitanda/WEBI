@@ -1633,3 +1633,6 @@ html, body {
     }
 }
 
+.success-icon i {
+    color: #E8563A;
+}
