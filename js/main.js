@@ -313,16 +313,15 @@ const cookieDecline = document.getElementById('cookieDecline');
 const cookieChoice = localStorage.getItem('cookieConsent');
 
 function loadAnalytics() {
-    // ── PASTE YOUR GOOGLE ANALYTICS SNIPPET HERE WHEN READY ──
-    // Example:
-    // const script = document.createElement('script');
-    // script.src = 'https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID';
-    // script.async = true;
-    // document.head.appendChild(script);
-    // window.dataLayer = window.dataLayer || [];
-    // function gtag(){dataLayer.push(arguments);}
-    // gtag('js', new Date());
-    // gtag('config', 'YOUR-GA-ID');
+    const script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-5D8HDYM4GJ';
+    script.async = true;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-5D8HDYM4GJ');
 }
 
 if (!cookieChoice) {
