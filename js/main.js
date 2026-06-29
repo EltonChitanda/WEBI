@@ -260,7 +260,7 @@ form.addEventListener('submit', async e => {
             formData.set('phone', iti.getNumber());
         }
 
-        const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        const response = await fetch('https://formspree.io/f/mlgylbqr', {
             method: 'POST',
             body: formData,
             headers: { 'Accept': 'application/json' }
