@@ -1636,3 +1636,48 @@ html, body {
 .success-icon i {
     color: #E8563A;
 }
+
+/* ── ABOUT SECTION ── */
+.about-section {
+    background: #f0f0f0;
+    padding: 100px 56px;
+}
+
+.about-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-eyebrow {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #E8563A;
+    margin-bottom: 18px;
+}
+
+.about-headline {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(26px, 3vw, 36px);
+    font-weight: 800;
+    color: #1A1816;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.about-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    line-height: 1.85;
+    color: #6b6560;
+}
+
+@media (max-width: 991px) {
+    .about-section {
+        padding: 60px 24px;
+    }
+}
